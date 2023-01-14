@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import listar_tipo, listar_area, listar_publico, listar_campus, cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus
+
 
 urlpatterns = [
+    path('tipo/', listar_tipo, name='listar_tipo'),
+    path('area/', listar_area, name='listar_area'),
+    path('publico/', listar_publico, name='listar_publico'),
+    path('campus/', listar_campus, name='listar_campus'),
+    
+    path('tipo_cadastrar/', cadastrar_tipo, name='cadastrar_tipo'),
+    path('area_cadastrar/', cadastrar_area, name='cadastrar_area'),
+    path('publico_cadastrar/', cadastrar_publico, name='cadastrar_publico'),
+    path('campus_cadastrar/', cadastrar_campus, name='cadastrar_campus'),
+    
     path('admin/', admin.site.urls),
 ]
+
