@@ -12,6 +12,8 @@
     <h3>Listagem de Público</h3>
     {% for publico in todos_publico %}
     <p>Nome: {{publico.nome}}</p>
+    | <a href="{% url 'editar_publico' publico.id %}">EDITAR</a>
+    | <a href="{% url 'remover_publico' publico.id %}">REMOVER</a>
     {% empty %}
     <p>Não existem públicos cadastrados</p>
     {% endfor %}

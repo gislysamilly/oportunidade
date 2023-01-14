@@ -33,6 +33,8 @@ def listar_campus(request):
 
 
 
+
+
 def cadastrar_tipo(request):
     form = TipoForm(request.POST or None)  
     if form.is_valid():
@@ -78,3 +80,84 @@ def cadastrar_campus(request):
         'form_campus': form
     }
     return render(request, 'campus_cadastrar.html', contexto)
+
+
+
+
+
+def editar_tipo(request, id):
+    tipo = Tipo.objects.get(pk=id)
+    form = TipoForm(request.POST or None, instance=tipo)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('listar_tipo')
+    
+    contexto = {
+        'form_tipo': form
+    }
+        
+    return render(request, 'tipo_cadastrar.html', contexto)
+
+def editar_area(request, id):
+    area = Area.objects.get(pk=id)
+    form = AreaForm(request.POST or None, instance=area)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('listar_area')
+    
+    contexto = {
+        'form_area': form
+    }
+        
+    return render(request, 'area_cadastrar.html')
+
+def editar_publico(request, id):
+    publico = Publico.objects.get(pk=id)
+    form = PublicoForm(request.POST or None, instance=publico)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('listar_publico')
+    
+    contexto = {
+        'form_publico': form
+    }
+        
+    return render(request, 'publico_cadastrar.html', contexto)
+
+def editar_campus(request, id):
+    campus = Campus.objects.get(pk=id)    
+    form = CampusForm(request.POST or None, instance=campus)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('listar_campus')
+    
+    contexto = {
+        'form_campus': form
+    }
+        
+    return render(request, 'campus_cadastrar.html', contexto)
+
+
+def remover_tipo(request, id):
+    tipo = Tipo.objects.get(pk=id)
+    tipo.delete()
+    return redirect('listar_tipo')
+
+def remover_area(request, id):
+    area = Area.objects.get(pk=id)
+    area.delete()
+    return redirect('listar_area')
+
+def remover_publico(request, id):
+    publico = Publico.objects.get(pk=id)
+    publico.delete()
+    return redirect('listar_publico')
+
+def remover_campus(request, id):
+    campus = Campus.objects.get(pk=id)
+    campus.delete()
+    return redirect('listar_campus')

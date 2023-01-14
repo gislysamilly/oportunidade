@@ -12,6 +12,8 @@
     <p>Listagem de Tipo</p>
     {% for tipo in todos_tipo %}
     <p>Nome: {{tipo.nome}}</p>
+    | <a href="{% url 'editar_tipo' tipo.id %}">EDITAR</a>
+    | <a href="{% url 'remover_tipo' tipo.id %}">REMOVER</a>
     {% empty %}
     <p>Não existem tipos cadastrados</p>
     {% endfor %}

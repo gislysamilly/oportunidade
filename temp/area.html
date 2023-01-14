@@ -12,8 +12,13 @@
     <p><a href="{% url 'cadastrar_area' %}">Cadastrar</a></p>
 
     <h3>Listagem de Áreas</h3>
+
     {% for area in todos_area %}
+
     <p>Nome: {{area.nome}}</p>
+    | <a href="{% url 'editar_area' area.id %}">EDITAR</a>
+    | <a href="{% url 'remover_area' area.id %}">REMOVER</a>
+
     {% empty %}
     <p>Não existem áreas cadastradas</p>
     {% endfor %}

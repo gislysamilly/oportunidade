@@ -15,20 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import listar_tipo, listar_area, listar_publico, listar_campus, cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus
-
+from core.views import listar_tipo, listar_area, listar_publico, listar_campus
+from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus
+from core.views import editar_tipo, editar_area, editar_publico, editar_campus
+from core.views import remover_tipo, remover_area, remover_publico, remover_campus
 
 urlpatterns = [
     path('tipo/', listar_tipo, name='listar_tipo'),
     path('area/', listar_area, name='listar_area'),
     path('publico/', listar_publico, name='listar_publico'),
     path('campus/', listar_campus, name='listar_campus'),
-    
     path('tipo_cadastrar/', cadastrar_tipo, name='cadastrar_tipo'),
     path('area_cadastrar/', cadastrar_area, name='cadastrar_area'),
     path('publico_cadastrar/', cadastrar_publico, name='cadastrar_publico'),
     path('campus_cadastrar/', cadastrar_campus, name='cadastrar_campus'),
-    
+    path('tipo_editar/<int:id>/', editar_tipo, name='editar_tipo'),
+    path('area_editar/<int:id>/', editar_area, name='editar_area'),
+    path('publico_editar/<int:id>/', editar_publico, name='editar_publico'),
+    path('campus_editar/<int:id>/', editar_campus, name='editar_campus'),
+    path('tipo_remover/<int:id>/', remover_tipo, name='remover_tipo'),
+    path('area_remover/<int:id>/', remover_area, name='remover_area'),
+    path('publico_remover/<int:id>/', remover_publico, name='remover_publico'),
+    path('campus_remover/<int:id>/', remover_campus, name='remover_campus'),
     path('admin/', admin.site.urls),
 ]
 
