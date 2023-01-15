@@ -22,3 +22,5 @@ class Usuario(models.Model):
     phone = models.CharField('phone', max_length=9)
     date = models.CharField('date', max_length=8)
     idade = models.CharField('idade', max_length=2)
+
+    USERNAME_FIELD = 'cpf'
