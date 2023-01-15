@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Tipo, Area, Publico, Campus
 from .forms import TipoForm, AreaForm, PublicoForm, CampusForm
-
+from django.contrib.auth.decorators import login_required
 
 def listar_tipo(request):
     tipos = Tipo.objects.all()
@@ -161,3 +161,15 @@ def remover_campus(request, id):
     campus = Campus.objects.get(pk=id)
     campus.delete()
     return redirect('listar_campus')
+
+
+def home(request):
+    return HttpResponse('Pagina Inicial')
+
+@login_required
+def pagina_perfil(request):
+    return render(request, 'perfil.html')
+
+
+def pagina_index(request):
+    return render(request, 'index.html')
