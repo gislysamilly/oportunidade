@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Tipo, Area, Publico, Campus
-from .forms import TipoForm, AreaForm, PublicoForm, CampusForm
+from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm
 from django.contrib.auth.decorators import login_required
 
 def listar_tipo(request):
@@ -173,3 +173,15 @@ def pagina_perfil(request):
 
 def pagina_index(request):
     return render(request, 'index.html')
+
+
+
+def registro(request):
+    form = UsuarioCreationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('login')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'registro.html', contexto)

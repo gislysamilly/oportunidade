@@ -20,7 +20,7 @@ from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadast
 from core.views import editar_tipo, editar_area, editar_publico, editar_campus
 from core.views import remover_tipo, remover_area, remover_publico, remover_campus, pagina_perfil, pagina_index
 from django.contrib.auth.views import LoginView, LogoutView
-from core.views import home
+from core.views import home, registro
 
 urlpatterns = [
     path('tipo/', listar_tipo, name='listar_tipo'),
@@ -47,6 +47,8 @@ urlpatterns = [
     path('index/', pagina_index, name='pagina_index'),
     
     path('admin/', admin.site.urls),
+
+    path('registro/', registro, name='registro'),
     
 ]
 
