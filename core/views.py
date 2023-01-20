@@ -164,15 +164,11 @@ def remover_campus(request, id):
 
 
 def home(request):
-    return HttpResponse('Pagina Inicial')
+    return render(request, 'index.html')
 
 @login_required
 def pagina_perfil(request):
-    return render(request, 'perfil.html')
-
-
-def pagina_index(request):
-    return render(request, 'index.html')
+    return render(request, 'perfi.html')
 
 
 

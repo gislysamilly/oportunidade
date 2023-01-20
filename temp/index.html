@@ -1,14 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/externo.css' %}">
 </head>
 <body>
-
-    <h1>Página Inicial</h1>
+    
+    <h1><center>
+    <img src="https://ead.ifrn.edu.br/ajuda/wp-content/uploads/2022/05/ifrn-logo.png" alt="ifrn" height="100">
+    </center> OPORTU<br />NIDADES</h1>
+    <p>IFRN</p>
 
     <p><a href="{% url 'login' %}">Login</a></p>
 
