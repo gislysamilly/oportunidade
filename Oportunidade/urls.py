@@ -18,7 +18,7 @@ from django.urls import path
 from core.views import listar_oportunidade, listar_tipo, listar_area, listar_publico, listar_campus, oportunidade
 from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus
 from core.views import editar_tipo, editar_area, editar_publico, editar_campus
-from core.views import remover_tipo, remover_area, remover_publico, remover_campus, pagina_perfil
+from core.views import remover_tipo, remover_area, remover_publico, remover_campus, perfil
 from django.contrib.auth.views import LoginView, LogoutView
 from core.views import home, registro
 
@@ -40,7 +40,7 @@ urlpatterns = [
     path('publico_remover/<int:id>/', remover_publico, name='remover_publico'),
     path('campus_remover/<int:id>/', remover_campus, name='remover_campus'),
     path('', home),
-    path('perfil/', pagina_perfil, name='pagina_perfil'),
+    path('perfil/', perfil, name='perfil'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('oportunidade_cadastrar/', oportunidade, name='oportunidade'),

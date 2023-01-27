@@ -120,11 +120,11 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = ['static']
 
-LOGIN_URL = 'pagina_login'
+LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'pagina_perfil'
+LOGIN_REDIRECT_URL = 'perfil'
 
-LOGOUT_REDIRECT_URL = 'pagina_index'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
