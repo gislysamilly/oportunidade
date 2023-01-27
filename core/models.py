@@ -32,3 +32,4 @@ class Oportunidade(models.Model):
     campus = models.ForeignKey(Campus, on_delete=models.PROTECT)
     tipo = models.ForeignKey(Tipo, on_delete=models.PROTECT)
     publicos = models.ManyToManyField(Publico)
+

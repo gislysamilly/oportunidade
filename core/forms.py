@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tipo, Area, Publico, Campus, Usuario
+from .models import Tipo, Area, Publico, Campus, Usuario, Oportunidade
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -29,3 +29,9 @@ class UsuarioCreationForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = ['usuario1','senha1','senha2','cpf','email','date','idade', 'phone']
+
+
+class OportunidadeForm (ModelForm):
+    class Meta:
+        model = Oportunidade
+        fields = ['titulo', 'anexo', 'area', 'campus', 'tipo', 'publicos']
