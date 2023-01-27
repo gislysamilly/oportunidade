@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Tipo, Area, Publico, Campus
-from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm
+from .models import Oportunidade, Tipo, Area, Publico, Campus
+from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm, OportunidadeForm
 from django.contrib.auth.decorators import login_required
 
 def listar_tipo(request):
@@ -181,3 +181,22 @@ def registro(request):
         'form': form
     }
     return render(request, 'registro.html', contexto)
+
+
+def oportunidade(request):
+    form = OportunidadeForm(request.POST or None)  
+    if form.is_valid():
+       form.save()
+       return redirect('oportunidade_listar')
+    
+    contexto = {
+        'form': form
+    }
+    return render(request, 'oportunidade_cadastrar.html', contexto)
+
+def listar_oportunidade(request):
+    areas = Oportunidade.objects.all()
+    contexto = {
+        'todos_oportunidades': oportunidade
+    }
+    return render(request, 'oportunidade_listar.html', contexto)
