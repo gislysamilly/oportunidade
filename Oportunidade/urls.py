@@ -45,9 +45,9 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('oportunidade_cadastrar/', cadastrar_oportunidade, name='cadastrar_oportunidade'),
     path('oportunidades/', listar_oportunidade, name='listar_oportunidade'),
-    
     path('oportunidade_editar/<int:id>/', editar_oportunidade, name='editar_oportunidade'),
     path('oportunidade_remover/<int:id>/', remover_oportunidade, name='remover_oportunidade'),
+    
     
     path('admin/', admin.site.urls),
 

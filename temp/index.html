@@ -32,8 +32,19 @@
     <center> <h2>- IFRN - </h2>
     </center>
 
-    
+    {% for oportunidades in todos_oportunidades %}
 
+    <p>Título: {{oportunidades.titulo}}</p>
+    <p>Anexo: {{oportunidades.anexo}}</p>
+    <p>Área:{{oportunidades.area}}</p>
+    <p>Campus:{{oportunidades.campus}}</p>
+    <p>Tipo:{{oportunidades.tipo}}</p>
+    <p>Públicos:{{oportunidades.publicos}}</p>
+<br/>
+
+    {% empty %}
+    <p>Não existem oportunidades cadastradas</p>
+    {% endfor %}
 
 
 

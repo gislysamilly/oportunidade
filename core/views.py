@@ -164,7 +164,11 @@ def remover_campus(request, id):
 
 
 def home(request):
-    return render(request, 'index.html')
+    oportunidades = Oportunidade.objects.all()
+    contexto = {
+    'todos_oportunidades': oportunidades
+    }    
+    return render(request, 'index.html', contexto)
 
 @login_required
 def perfil(request):
@@ -224,3 +228,5 @@ def remover_oportunidade(request, id):
     oportunidades = Oportunidade.objects.get(pk=id)
     oportunidades.delete()
     return redirect('listar_oportunidade')
+
+

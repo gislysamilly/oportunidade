@@ -8,22 +8,34 @@ class TipoForm(ModelForm):
     class Meta:
         model = Tipo
         fields = ['nome']
+        widgets = {
+            'tipo': forms.RadioSelect()
+        }
          
 class AreaForm(ModelForm):
     class Meta:
         model = Area
         fields = ['nome']
+        widgets = {
+            'tipo': forms.RadioSelect()
+        }       
          
 class PublicoForm(ModelForm):
     class Meta:
         model = Publico
         fields = ['nome']
+        widgets = {
+            'tipo': forms.CheckboxSelectMultiple()
+        }     
+
          
 class CampusForm(ModelForm):
     class Meta:
         model = Campus
         fields = ['nome']
-
+        widgets = {
+            'tipo': forms.RadioSelect()
+        }     
 
 class UsuarioCreationForm(UserCreationForm):
     class Meta:
