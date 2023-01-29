@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import listar_oportunidade, listar_tipo, listar_area, listar_publico, listar_campus, oportunidade
-from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus
-from core.views import editar_tipo, editar_area, editar_publico, editar_campus
-from core.views import remover_tipo, remover_area, remover_publico, remover_campus, perfil
+from core.views import listar_oportunidade, listar_tipo, listar_area, listar_publico, listar_campus, listar_oportunidade
+from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadastrar_campus, cadastrar_oportunidade
+from core.views import editar_tipo, editar_area, editar_publico, editar_campus, editar_oportunidade
+from core.views import remover_tipo, remover_area, remover_publico, remover_campus, perfil, remover_oportunidade
 from django.contrib.auth.views import LoginView, LogoutView
 from core.views import home, registro
 
@@ -43,8 +43,11 @@ urlpatterns = [
     path('perfil/', perfil, name='perfil'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('oportunidade_cadastrar/', oportunidade, name='oportunidade'),
-    path('oportunidade_listar/', listar_oportunidade, name='listar_oportunidade'),
+    path('oportunidade_cadastrar/', cadastrar_oportunidade, name='cadastrar_oportunidade'),
+    path('oportunidades/', listar_oportunidade, name='listar_oportunidade'),
+    
+    path('oportunidade_editar/<int:id>/', editar_oportunidade, name='editar_oportunidade'),
+    path('oportunidade_remover/<int:id>/', remover_oportunidade, name='remover_oportunidade'),
     
     path('admin/', admin.site.urls),
 

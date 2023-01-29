@@ -8,7 +8,10 @@
 </head>
 <body>
     
-    <h1>Cadastrar Oportunidade</h1>
+    <h1>Cadastrar Oportunidades</h1>
+    <form method="post">
+
+    {% csrf_token %}
 
     <p>{{form.titulo.label}}: {{form.titulo}}</p>
     <p>{{form.anexo.label}}: {{form.anexo}}</p>
@@ -16,9 +19,7 @@
     <p>{{form.campus.label}}: {{form.campus}}</p>
     <p>{{form.tipo.label}}: {{form.tipo}}</p>
     <p>{{form.publicos.label}}: {{form.publicos}}</p>
-
-    {% csrf_token %}
-    {{ form_campus }}
+ 
     <p><input type="submit" value="Cadastrar" /></p>  
 
 </body>

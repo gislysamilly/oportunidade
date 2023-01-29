@@ -2,26 +2,34 @@ from django.db import models
 
 class Tipo(models.Model):
     nome = models.CharField('nome', max_length=100)
+    def __str__(self):
+        return self.nome
     
 class Area(models.Model):
     nome = models.CharField('nome', max_length=100)
     
+    def __str__(self):
+        return self.nome
+    
 class Publico(models.Model):
     nome = models.CharField('nome', max_length=100)
+    def __str__(self):
+        return self.nome
     
 class Campus(models.Model):
     nome = models.CharField('nome', max_length=100)
+    def __str__(self):
+        return self.nome
 
    
 class Usuario(models.Model):
-    usuario1 = models.CharField('usuario1', max_length=100)
-    senha1 = models.CharField('senha1', max_length=100)
-    senha2 = models.CharField('senha2', max_length=100)
-    cpf = models.CharField('cpf', max_length=11)
+    username = models.CharField('username', max_length=100)
+    cpf = models.CharField('cpf', max_length=11, unique =True)
     email = models.CharField('email', max_length=100)
-    phone = models.CharField('phone', max_length=9)
-    date = models.CharField('date', max_length=8)
-    idade = models.CharField('idade', max_length=2)
+    matricula = models.CharField('matricula', max_length=100)
+    setor = models.CharField('setor', max_length=100)
+    password1 = models.CharField('password1', max_length=100)
+    password2 = models.CharField('password2', max_length=100)
 
     USERNAME_FIELD = 'cpf'
 
@@ -31,5 +39,8 @@ class Oportunidade(models.Model):
     area = models.ForeignKey(Area, on_delete=models.PROTECT)
     campus = models.ForeignKey(Campus, on_delete=models.PROTECT)
     tipo = models.ForeignKey(Tipo, on_delete=models.PROTECT)
-    publicos = models.ManyToManyField(Publico)
+    publicos = models.ManyToManyField('Publico')
+    
+    
+
 

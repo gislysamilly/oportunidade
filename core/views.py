@@ -184,20 +184,43 @@ def registro(request):
     return render(request, 'registro.html', contexto)
 
 
-def oportunidade(request):
+
+def cadastrar_oportunidade(request):
     form = OportunidadeForm(request.POST or None)  
     if form.is_valid():
        form.save()
-       return redirect('oportunidade_listar')
+       return redirect('listar_oportunidade')
     
     contexto = {
         'form': form
     }
     return render(request, 'oportunidade_cadastrar.html', contexto)
 
+
+
 def listar_oportunidade(request):
-    areas = Oportunidade.objects.all()
+    oportunidades = Oportunidade.objects.all()
     contexto = {
-        'todos_oportunidades': oportunidade
+        'todos_oportunidades': oportunidades
     }
-    return render(request, 'oportunidade_listar.html', contexto)
+    return render(request, 'oportunidades.html', contexto)
+
+
+def editar_oportunidade(request, id):
+    oportunidades = Oportunidade.objects.get(pk=id)    
+    form = OportunidadeForm(request.POST or None, instance=oportunidades)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('listar_oportunidade')
+    
+    contexto = {
+        'form_oportunidade': form
+    }
+        
+    return render(request, 'oportunidade_cadastrar.html', contexto)
+
+def remover_oportunidade(request, id):
+    oportunidades = Oportunidade.objects.get(pk=id)
+    oportunidades.delete()
+    return redirect('listar_oportunidade')

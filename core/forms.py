@@ -28,8 +28,7 @@ class CampusForm(ModelForm):
 class UsuarioCreationForm(UserCreationForm):
     class Meta:
         model = Usuario
-        fields = ['usuario1','senha1','senha2','cpf','email','date','idade', 'phone']
-
+        fields = ['username','cpf','email','matricula','setor','password1','password2']
 
 class OportunidadeForm (ModelForm):
     class Meta:
