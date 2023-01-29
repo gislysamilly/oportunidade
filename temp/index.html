@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
 <html lang="en">
 <head>
@@ -9,44 +10,6 @@
   <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">OPORTUNIDADES</a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(atual)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'registro' %}">Cadastre-se <span class="sr-only">(atual)</span></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    
-    <center>
-    <img src="https://ead.ifrn.edu.br/ajuda/wp-content/uploads/2022/05/ifrn-logo.png" alt="ifrn" height="100" >
-    </center> 
-    <h1>OPORTUNIDADES</h1>
-    <center> <h2>- IFRN - </h2>
-    </center>
-
-    {% for oportunidades in todos_oportunidades %}
-
-    <p>Título: {{oportunidades.titulo}}</p>
-    <p>Anexo: {{oportunidades.anexo}}</p>
-    <p>Área:{{oportunidades.area}}</p>
-    <p>Campus:{{oportunidades.campus}}</p>
-    <p>Tipo:{{oportunidades.tipo}}</p>
-    <p>Públicos:{{oportunidades.publicos}}</p>
-<br/>
-
-    {% empty %}
-    <p>Não existem oportunidades cadastradas</p>
-    {% endfor %}
-
-
-
-  {% extends "base.html" %}
 
 {% block conteudo %}
   <center>
@@ -56,5 +19,23 @@
   <center> <h2>- IFRN -</h2>
   </center>
 {% endblock %}
+
+
+{% for oportunidades in todos_oportunidades %}
+
+<p>Título: {{oportunidades.titulo}}</p>
+<p>Anexo: {{oportunidades.anexo}}</p>
+<p>Área:{{oportunidades.area}}</p>
+<p>Campus:{{oportunidades.campus}}</p>
+<p>Tipo:{{oportunidades.tipo}}</p>
+<p>Públicos:{{oportunidades.publicos}}</p>
+<br/>
+
+{% empty %}
+<p>Não existem oportunidades cadastradas</p>
+{% endfor %}
+
+
+
 </body>
 </html>
