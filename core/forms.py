@@ -8,34 +8,23 @@ class TipoForm(ModelForm):
     class Meta:
         model = Tipo
         fields = ['nome']
-        widgets = {
-            'tipo': forms.RadioSelect()
-        }
          
 class AreaForm(ModelForm):
     class Meta:
         model = Area
-        fields = ['nome']
-        widgets = {
-            'tipo': forms.RadioSelect()
-        }       
+        fields = ['nome'] 
          
 class PublicoForm(ModelForm):
     class Meta:
         model = Publico
         fields = ['nome']
-        widgets = {
-            'tipo': forms.CheckboxSelectMultiple()
-        }     
+
 
          
 class CampusForm(ModelForm):
     class Meta:
         model = Campus
         fields = ['nome']
-        widgets = {
-            'tipo': forms.RadioSelect()
-        }     
 
 class UsuarioCreationForm(UserCreationForm):
     class Meta:
@@ -46,3 +35,11 @@ class OportunidadeForm (ModelForm):
     class Meta:
         model = Oportunidade
         fields = ['titulo', 'anexo', 'area', 'campus', 'tipo', 'publicos']
+        widgets = {
+            'area': forms.RadioSelect(),
+            'campus': forms.RadioSelect(),
+            'tipo': forms.RadioSelect(),
+            'publicos': forms.CheckboxSelectMultiple(),
+        }       
+        
+        
