@@ -215,7 +215,7 @@ def editar_oportunidade(request, id):
         return redirect('listar_oportunidade')
     
     contexto = {
-        'form_oportunidade': form
+        'form': form
     }
         
     return render(request, 'oportunidade_cadastrar.html', contexto)
