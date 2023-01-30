@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Oportunidade, Tipo, Area, Publico, Campus
 from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm, OportunidadeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth import logout
 
 def listar_tipo(request):
     tipos = Tipo.objects.all()
@@ -176,9 +179,14 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 
+def desconectar(request):
+    logout(request)
+    return redirect('home')
+
+
 
 def registro(request):
-    form = UsuarioCreationForm(request.POST or None)
+    form = UserCreationForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('login')
@@ -187,6 +195,17 @@ def registro(request):
     }
     return render(request, 'registro.html', contexto)
 
+@login_required
+def dados(request, id):
+    user = User.objects.get(pk=id)
+    form = UserCreationForm(request.POST or None, instance=user)
+    if form.is_valid():
+        form.save()
+        return redirect('perfil')
+    contexto = {
+        'form': form
+    }
+    return render(request, 'registro.html', contexto)
 
 
 def cadastrar_oportunidade(request):

@@ -20,7 +20,7 @@ from core.views import cadastrar_tipo, cadastrar_area, cadastrar_publico, cadast
 from core.views import editar_tipo, editar_area, editar_publico, editar_campus, editar_oportunidade
 from core.views import remover_tipo, remover_area, remover_publico, remover_campus, perfil, remover_oportunidade
 from django.contrib.auth.views import LoginView, LogoutView
-from core.views import home, registro
+from core.views import home, registro, dados, desconectar
 
 urlpatterns = [
     path('tipo/', listar_tipo, name='listar_tipo'),
@@ -41,17 +41,17 @@ urlpatterns = [
     path('campus_remover/<int:id>/', remover_campus, name='remover_campus'),
     path('', home),
     path('perfil/', perfil, name='perfil'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path("login/", LoginView.as_view(), name="login"),
+    path("logout/", LogoutView.as_view(), name="logout"),
     path('oportunidade_cadastrar/', cadastrar_oportunidade, name='cadastrar_oportunidade'),
     path('oportunidades/', listar_oportunidade, name='listar_oportunidade'),
     path('oportunidade_editar/<int:id>/', editar_oportunidade, name='editar_oportunidade'),
     path('oportunidade_remover/<int:id>/', remover_oportunidade, name='remover_oportunidade'),
-    
+    path("logout/", desconectar, name="logout"),
     
     path('admin/', admin.site.urls),
 
     path('registro/', registro, name='registro'),
-    
+    path('dados/<int:id>/', dados, name='dados'),
 ]
 
