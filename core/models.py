@@ -35,7 +35,7 @@ class Usuario(models.Model):
 
 class Oportunidade(models.Model):
     titulo = models.CharField('nome', max_length=100)
-    anexo = models.CharField('anexo', max_length=100)
+    anexo = models.ImageField("anexo", upload_to="media/", null=True, blank=True)
     area = models.ForeignKey(Area, on_delete=models.PROTECT)
     campus = models.ForeignKey(Campus, on_delete=models.PROTECT)
     tipo = models.ForeignKey(Tipo, on_delete=models.PROTECT)

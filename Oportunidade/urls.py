@@ -21,6 +21,8 @@ from core.views import editar_tipo, editar_area, editar_publico, editar_campus, 
 from core.views import remover_tipo, remover_area, remover_publico, remover_campus, perfil, remover_oportunidade
 from django.contrib.auth.views import LoginView, LogoutView
 from core.views import home, registro, dados, desconectar
+from django.conf.urls.static import static 
+from django.conf import settings
 
 urlpatterns = [
     path('tipo/', listar_tipo, name='listar_tipo'),
@@ -54,5 +56,5 @@ urlpatterns = [
     path('registro/', registro, name='registro'),
     path('dados/<int:id>/', dados, name='dados'),
     path('home/', home, name='home'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
