@@ -3,7 +3,6 @@ from django.forms import ModelForm
 from .models import Tipo, Area, Publico, Campus, Usuario, Oportunidade
 from django.contrib.auth.forms import UserCreationForm
 
-
 class TipoForm(ModelForm):
     class Meta:
         model = Tipo
@@ -18,9 +17,7 @@ class PublicoForm(ModelForm):
     class Meta:
         model = Publico
         fields = ['nome']
-
-
-         
+                
 class CampusForm(ModelForm):
     class Meta:
         model = Campus

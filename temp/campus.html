@@ -9,14 +9,16 @@
 <body>
     <h1>Campus</h1>
     <p><a href="{% url 'cadastrar_campus' %}">Cadastrar</a></p>
+    
     <h3>Listagem de Campi</h3>
+
     {% for campus in todos_campus %}
 
     <p>Nome: {{campus.nome}}</p>
     | <a href="{% url 'editar_campus' campus.id %}">EDITAR</a>
     | <a href="{% url 'remover_campus' campus.id %}">REMOVER</a>
-    {% empty %}
 
+    {% empty %}
     <p>Não existem campi cadastrados</p>
     {% endfor %}
 

@@ -87,7 +87,6 @@ def cadastrar_campus(request):
 
 
 
-
 def editar_tipo(request, id):
     tipo = Tipo.objects.get(pk=id)
     form = TipoForm(request.POST or None, instance=tipo)
@@ -103,8 +102,8 @@ def editar_tipo(request, id):
     return render(request, 'tipo_cadastrar.html', contexto)
 
 def editar_area(request, id):
-    area = Area.objects.get(pk=id)
-    form = AreaForm(request.POST or None, instance=area)
+    areas = Area.objects.get(pk=id)
+    form = AreaForm(request.POST or None, instance=areas)
     
     if form.is_valid():
         form.save()
@@ -113,8 +112,7 @@ def editar_area(request, id):
     contexto = {
         'form_area': form
     }
-        
-    return render(request, 'area_cadastrar.html')
+    return render(request, 'area_cadastrar.html', contexto)
 
 def editar_publico(request, id):
     publico = Publico.objects.get(pk=id)
@@ -175,7 +173,6 @@ def home(request):
 
 @login_required
 def perfil(request):
-    
     return render(request, 'perfil.html')
 
 

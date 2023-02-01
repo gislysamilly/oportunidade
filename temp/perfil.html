@@ -7,12 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+
+    <p></p><a href="{% url 'home' %}"> Página Inicial</a></p>
+
     <h1>Página de Perfil</h1>
 
     <h3>Bem vindo ao seu perfil {{  user.username }}!</h3>
+
     <p><a href="{% url 'dados' user.id %}">Dados Pessoais</a></p>
 
-    <p><a href="{% url 'logout' %}">Sair</a></p>
+    <p></p><a href="{% url 'cadastrar_oportunidade' %}"> Cadastrar Oportunidades</a></p>
+
+    <p><a href="{% url 'home' %}">Sair</a></p>
 
 </body>
 </html>

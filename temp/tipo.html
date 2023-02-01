@@ -9,7 +9,7 @@
 <body>
     <h1>Tipo</h1>
     <p><a href="{% url 'cadastrar_tipo' %}">Cadastrar</a></p>
-    <p>Listagem de Tipo</p>
+    <h3>Listagem de Tipo</h3>
     {% for tipo in todos_tipo %}
     <p>Nome: {{tipo.nome}}</p>
     | <a href="{% url 'editar_tipo' tipo.id %}">EDITAR</a>

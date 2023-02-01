@@ -9,18 +9,21 @@
 <body>
     <h1>Oportunidades</h1>
 
-    <p><a href="{% url 'cadastrar_oportunidade' %}">Cadastrar Oportunidade</a></p>
+    <p></p><a href="{% url 'perfil' %}"> Voltar ao Perfil</a></p>
+    <p><a href="{% url 'cadastrar_oportunidade' %}">Cadastrar Nova Oportunidade</a></p> 
 
     <h3>Minhas Oportunidades</h3>
 
     {% for oportunidades in todos_oportunidades %}
 
+    <div>
     <p>Título: {{oportunidades.titulo}}</p>
     <p>Anexo: {{oportunidades.anexo}}</p>
     <p>Área:{{oportunidades.area}}</p>
     <p>Campus:{{oportunidades.campus}}</p>
     <p>Tipo:{{oportunidades.tipo}}</p>
     <p>Públicos:{{oportunidades.publicos}}</p>
+    </div>
 
     | <a href="{% url 'editar_oportunidade' oportunidades.id %}">EDITAR</a>
     | <a href="{% url 'remover_oportunidade' oportunidades.id %}">REMOVER</a>
