@@ -55,6 +55,6 @@ urlpatterns = [
 
     path('registro/', registro, name='registro'),
     path('dados/<int:id>/', dados, name='dados'),
-   
+    path('', home, name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
