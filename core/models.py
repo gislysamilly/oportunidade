@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Tipo(models.Model):
     nome = models.CharField('nome', max_length=100)
@@ -22,14 +23,12 @@ class Campus(models.Model):
         return self.nome
 
    
-class Usuario(models.Model):
+class Usuario(AbstractUser):
     username = models.CharField('username', max_length=100)
     cpf = models.CharField('cpf', max_length=11, unique =True)
     email = models.CharField('email', max_length=100)
     matricula = models.CharField('matricula', max_length=100)
     setor = models.CharField('setor', max_length=100)
-    password1 = models.CharField('password1', max_length=100)
-    password2 = models.CharField('password2', max_length=100)
 
     USERNAME_FIELD = 'cpf'
 
