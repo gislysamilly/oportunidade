@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Oportunidade, Tipo, Area, Publico, Campus
 from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm, OportunidadeForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 
@@ -183,7 +182,7 @@ def desconectar(request):
 
 
 def registro(request):
-    form = UserCreationForm(request.POST or None)
+    form = UsuarioCreationForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('login')

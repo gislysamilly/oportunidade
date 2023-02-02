@@ -12,10 +12,9 @@
     <p></p><a href="{% url 'home' %}"> Página Inicial</a></p>
 
     <h1>Cadastro Servidor</h1>
-    
     <form method="post">
         {% csrf_token %}
-        <p>Usuário: {{form.username}}</p>
+        <p>Usuario: {{form.username}}</p>
         <p>CPF: {{form.cpf}}</p>
         <p>E-mail: {{form.email}}</p>
         <p>Matrícula: {{form.matricula}}</p>

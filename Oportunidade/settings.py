@@ -106,7 +106,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [    
-    'estaticos',
+    'static',
 ]
 
 LOGIN_URL = 'login'
