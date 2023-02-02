@@ -105,7 +105,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 STATICFILES_DIRS = [    
+=======
+STATICFILES_DIRS = [
+>>>>>>> d893172e1e3562370d5252e01bbdf94c9c47f995
     'static',
 ]
 

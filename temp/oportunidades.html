@@ -19,9 +19,15 @@
     <div>
     <p>Título: {{oportunidades.titulo}}</p>
     <p>Anexo: {{oportunidades.anexo}}</p>
+<<<<<<< HEAD
     <p>Área: {{oportunidades.area}}</p>
     <p>Campus: {{oportunidades.campus}}</p>
     <p>Tipo: {{oportunidades.tipo}}</p>
+=======
+    <p>Área:{{oportunidades.area}}</p>
+    <p>Campus:{{oportunidades.campus}}</p>
+    <p>Tipo:{{oportunidades.tipo}}</p>
+>>>>>>> d893172e1e3562370d5252e01bbdf94c9c47f995
     {% for oportunidade in oportunidades.publicos.all %}
     <p>{{oportunidade.nome}}</p>
     {% endfor %}
@@ -32,6 +38,5 @@
 
     {% empty %}
     <p>Não existem oportunidades cadastradas</p>
-    {% endfor %}
 </body>
 </html>
