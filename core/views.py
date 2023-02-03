@@ -201,8 +201,8 @@ def dados(request, id):
 
 
 def cadastrar_oportunidade(request):
-    form = OportunidadeForm(request.POST or None)
-    form = OportunidadeForm(request.POST or None, request.FILES or None) 
+   
+    form = OportunidadeForm(request.POST or None, request.FILES or None, instance=oportunidade),  
     if form.is_valid():
        form.save()
        return redirect('listar_oportunidade')
