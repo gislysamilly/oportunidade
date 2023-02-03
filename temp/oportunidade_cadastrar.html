@@ -36,8 +36,6 @@
           </ul>
         </div>
       </nav> 
-
-      
     
     <p></p><a href="{% url 'perfil' %}"> Perfil</a></p>
 
@@ -48,7 +46,7 @@
     {% csrf_token %}
 
     <p>{{form.titulo.label}}: {{form.titulo}}</p>
-    <p>{{form.anexo.label}}: {{form.anexo|add_class:"campo"}}</p>
+    <p>{{form.anexo.label}}: {{form.anexo}}</p>
     <p>{{form.area.label}}: {{form.area}}</p>
     <p>{{form.campus.label}}: {{form.campus}}</p>
     <p>{{form.tipo.label}}: {{form.tipo}}</p>

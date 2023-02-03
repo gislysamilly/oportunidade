@@ -40,6 +40,7 @@ class Oportunidade(models.Model):
     tipo = models.ForeignKey(Tipo, on_delete=models.PROTECT)
     publicos = models.ManyToManyField(Publico)
   
+
     
 
 

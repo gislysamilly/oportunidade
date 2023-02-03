@@ -202,7 +202,7 @@ def dados(request, id):
 
 def cadastrar_oportunidade(request):
    
-    form = OportunidadeForm(request.POST or None, request.FILES or None, instance=oportunidade),  
+    form = OportunidadeForm(request.POST or None, request.FILES or None)  
     if form.is_valid():
        form.save()
        return redirect('listar_oportunidade')
@@ -241,5 +241,4 @@ def remover_oportunidade(request, id):
     oportunidades = Oportunidade.objects.get(pk=id)
     oportunidades.delete()
     return redirect('listar_oportunidade')
-
 
