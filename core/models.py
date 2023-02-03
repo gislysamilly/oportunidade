@@ -27,10 +27,10 @@ class Usuario(AbstractUser):
     username = models.CharField('username', max_length=100)
     cpf = models.CharField('cpf', max_length=11, unique =True)
     email = models.CharField('email', max_length=100)
-    matricula = models.CharField('matricula', max_length=100)
+    matricula = models.CharField('matricula', max_length=100, unique =True)
     setor = models.CharField('setor', max_length=100)
 
-    USERNAME_FIELD = 'cpf'
+    USERNAME_FIELD = 'matricula'
 
 class Oportunidade(models.Model):
     titulo = models.CharField('nome', max_length=100)

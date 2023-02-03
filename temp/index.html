@@ -12,8 +12,9 @@
     <style>
     p
     {
-    margin-left: 1cm;
+    margin-left: 10px;
     }
+    
  
     </style>
 </head>
@@ -30,7 +31,7 @@
   
   {% for oportunidades in todos_oportunidades %}
 
-  <div>
+  <div class="col m-5">
   <img src="/media/{{oportunidade.anexo}}" alt="" width="100px" height="100px"/></p>
   <h5>{{oportunidades.titulo}}</h5>
   <p>Área: {{oportunidades.area}}</p>

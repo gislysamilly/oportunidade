@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Oportunidade, Tipo, Area, Publico, Campus,Usuario
 from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm, OportunidadeForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 
 def listar_tipo(request):
     tipos = Tipo.objects.all()
@@ -32,9 +31,6 @@ def listar_campus(request):
         'todos_campus': campus
     }
     return render(request, 'campus.html', contexto)
-
-
-
 
 
 def cadastrar_tipo(request):
