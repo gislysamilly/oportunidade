@@ -44,13 +44,11 @@
     <h1>Cadastrar Oportunidades</h1>
 <br/>
 
-    <form method="post">
-
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     <p>{{form.titulo.label}}: {{form.titulo}}</p>
-    <p>{{form.anexo.label}}: {{form.anexo}}</p>
+    <p>{{form.anexo.label}}: {{form.anexo|add_class:"campo"}}</p>
     <p>{{form.area.label}}: {{form.area}}</p>
     <p>{{form.campus.label}}: {{form.campus}}</p>
     <p>{{form.tipo.label}}: {{form.tipo}}</p>
