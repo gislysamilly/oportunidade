@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Oportunidade, Tipo, Area, Publico, Campus
+from .models import Oportunidade, Tipo, Area, Publico, Campus,Usuario
 from .forms import TipoForm, AreaForm, PublicoForm, CampusForm, UsuarioCreationForm, OportunidadeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -193,11 +193,11 @@ def registro(request):
 
 @login_required
 def dados(request, id):
-    user = User.objects.get(pk=id)
-    form = UserCreationForm(request.POST or None, instance=user)
+    user = Usuario.objects.get(pk=id)
+    form = UsuarioCreationForm(request.POST or None, instance=user)
     if form.is_valid():
-        form.save()
-        return redirect('perfil')
+       form.save()
+       return redirect('perfil')
     contexto = {
         'form': form
     }
@@ -205,7 +205,8 @@ def dados(request, id):
 
 
 def cadastrar_oportunidade(request):
-    form = OportunidadeForm(request.POST or None)  
+    form = OportunidadeForm(request.POST or None)
+    form = OportunidadeForm(request.POST or None, request.FILES or None) 
     if form.is_valid():
        form.save()
        return redirect('listar_oportunidade')
@@ -227,6 +228,7 @@ def listar_oportunidade(request):
 
 def editar_oportunidade(request, id):
     oportunidades = Oportunidade.objects.get(pk=id)    
+    form = OportunidadeForm(request.POST or None, request.FILES or None, instance=oportunidades)
     form = OportunidadeForm(request.POST or None, instance=oportunidades)
     
     if form.is_valid():

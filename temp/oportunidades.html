@@ -1,29 +1,61 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Document</title>
+    <style>
+        .form-control {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        
+    }
+    h1{
+      text-align: center;
+      margin-top: 80px;
+    }
+    button{
+      color: green;
+    }
+ 
+    </style>
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="">OPORTUNIDADES</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'perfil' %}">Perfil <span class="sr-only">(atual)</span></a>
+          <li class="nav-item active">
+          <a class="nav-link" href="{% url 'cadastrar_oportunidade' %}">Cadastrar Oportunidades <span class="sr-only">(atual)</span></a>
+          </li>
+        </li>
+      </ul>
+    </div>
+  </nav>
     <h1>Oportunidades</h1>
-
-    <p></p><a href="{% url 'perfil' %}"> Voltar ao Perfil</a></p>
-    <p><a href="{% url 'cadastrar_oportunidade' %}">Cadastrar Nova Oportunidade</a></p> 
-
-    <h3>Minhas Oportunidades</h3>
+<br/>
 
     {% for oportunidades in todos_oportunidades %}
 
     <div>
-    <p>Título: {{oportunidades.titulo}}</p>
-    <p>Anexo: {{oportunidades.anexo}}</p>
+    <h5>{{oportunidades.titulo}}</h5>
+    <img src="/media/{{oportunidade.anexo}}" alt="" width="100px" height="100px"/></p>
     <p>Área: {{oportunidades.area}}</p>
     <p>Campus: {{oportunidades.campus}}</p>
     <p>Tipo: {{oportunidades.tipo}}</p>
     {% for oportunidade in oportunidades.publicos.all %}
-    <p>{{oportunidade.nome}}</p>
+    <p>Público: {{oportunidade.nome}}</p>
     {% endfor %}
 
     </div>

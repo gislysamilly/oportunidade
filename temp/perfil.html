@@ -10,38 +10,47 @@
 
     <title>Document</title>
     <style>
-        .form-control {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        
-    }
-    h1{
+
+    h1
+    {
       text-align: center;
-      margin-top: 80px;
+      margin-top: 80px;   
     }
-    button{
-      color: green;
+    .estilo
+    {
+      text-align: center;
+      margin-top: 50px;
     }
- 
-    </style> 
+    
+  </style>
     
 </head>
 <body>
 
-    <p></p><a href="{% url 'home' %}"> Página Inicial</a></p>
-    Permission.user_set
-    <h1>Página de Perfil</h1>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="">OPORTUNIDADES</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'dados' user.id %}">Dados do Usuário <span class="sr-only">(atual)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'logout' %}">Sair <span class="sr-only">(atual)</span></a>
+          </li>
+      </ul>
+    </div>
+  </nav>
 
-    <h3>Bem vindo ao seu perfil {{  user.username }}!</h3>
 
-    <p><a href="{% url 'dados' user.id %}">Dados Pessoais</a></p>
 
-    <p></p><a href="{% url 'cadastrar_oportunidade' %}"> Cadastrar Oportunidades</a></p>
+  
+    <h1>Perfil</h1>
 
-    <p><a href="{% url 'home' %}">Sair</a></p>
+    <h3 class="estilo">Bem vindo ao seu perfil {{  user.username }}!</h3>
+
+    <br/>
+
+    <p class="estilo"> <a href="{% url 'cadastrar_oportunidade' %}"> Cadastrar Oportunidades</a></p>
 
 </body>
 </html>

@@ -37,17 +37,17 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'home' %}">Página Inicial <span class="sr-only">(atual)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'cadastrar_area' %}">Cadastrar Áreas <span class="sr-only">(atual)</span></a>
+          <li class="nav-item active">
+          <a class="nav-link" href="{% url 'cadastrar_oportunidade' %}">Cadastrar Oportunidades <span class="sr-only">(atual)</span></a>
+          </li>
+        </li>
       </ul>
     </div>
-  </nav>  
+  </nav>
 
-    <p></p><a href="{% url 'home' %}"> Página Inicial</a></p>
-
-    <h1>Área</h1>
-
-    <p><a href="{% url 'cadastrar_area' %}">Cadastrar</a></p>
-
-    <h3>Listagem de Áreas</h3>
+    <h1>Áreas Cadastradas</h1>
 
     {% for area in todos_area %}
 
